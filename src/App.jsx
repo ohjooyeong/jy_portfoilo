@@ -2,8 +2,12 @@ import { useEffect, useRef, useState } from "react";
 import "./App.css";
 import "fullpage.js/vendors/scrolloverflow"; // Optional. When using scrollOverflow:true
 import ReactFullpage from "@fullpage/react-fullpage";
+import ProfileBack from "./section/ProfileBack";
+import Profile3dCard from "./section/Profile3dCard";
+import ProfileCard from "./section/ProfileCard";
 
 function App() {
+  const [scrollIndex, setScrollIndex] = useState(0);
   return (
     <ReactFullpage
       licenseKey={"YOUR_LICENSE_KEY"}
@@ -13,10 +17,15 @@ function App() {
         return (
           <div id="fullpage-wrapper">
             <div className="section">
-              <div className="inner bg-yellow">1</div>
+              <div className="inner bg-desktop">
+                <ProfileCard></ProfileCard>
+              </div>
             </div>
             <div className="section">
-              <div className="inner bg-blue">2</div>
+              <div className="inner">
+                <ProfileBack />
+                <Profile3dCard scrollIndex={scrollIndex} />
+              </div>
             </div>
 
             <div className="section">
